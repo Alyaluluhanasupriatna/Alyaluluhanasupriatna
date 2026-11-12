@@ -11,26 +11,26 @@
 * { box-sizing: border-box; }
 
 body {
-    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    background: linear-gradient(135deg, #fff0f5, #fce4ec, #ffffff);
     min-height: 100vh;
     font-family: Arial, sans-serif;
     padding-bottom: 40px;
 }
 
-.navbar { background: #0f172a; }
+.navbar { background: #d978a3; }
 
 .biodata-card {
     max-width: 450px;
     margin: 35px auto;
     background: white;
-    color: #172554;
+    color: #9d5275;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px #0004;
+    box-shadow: 0 10px 30px #d98bab55;
 }
 
 .profile-header {
-    background: #1d4ed8;
+    background: #e99ab8;
     color: white;
     text-align: center;
     padding: 28px 15px;
@@ -41,7 +41,7 @@ body {
     height: 85px;
     border-radius: 50%;
     background: white;
-    color: #1d4ed8;
+    color: #d978a3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,15 +56,15 @@ body {
 }
 
 .profile-footer {
-    background: #f1f5f9;
+    background: #fff0f5;
     text-align: center;
     padding: 14px;
-    color: #64748b;
+    color: #c17b99;
 }
 
 .nav-links a {
     display: inline-block;
-    background: #1d4ed8;
+    background: #e99ab8;
     color: white;
     text-decoration: none;
     padding: 8px 12px;
@@ -76,17 +76,24 @@ body {
 .calculator {
     max-width: 520px;
     margin: 30px auto;
-    background: #202938;
-    color: white;
+    background: #fff0f5;
+    color: #9d5275;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 12px 35px #0005;
+    border: 2px solid #f5c5d8;
+    box-shadow: 0 12px 35px #d98bab55;
+}
+
+.calculator h4 {
+    color: #c66b94;
+    letter-spacing: 1px;
 }
 
 .display {
-    background: #dce9d4;
-    color: #15251a;
-    border-radius: 10px;
+    background: #ffffff;
+    color: #a64d76;
+    border: 2px solid #f5c5d8;
+    border-radius: 12px;
     padding: 14px;
     margin-bottom: 15px;
     min-height: 105px;
@@ -97,18 +104,19 @@ body {
 #expression {
     font-size: 14px;
     min-height: 22px;
-    color: #52634a;
+    color: #c58aa5;
 }
 
 #screen {
     font-size: 30px;
     font-weight: bold;
     min-height: 40px;
+    color: #a64d76;
 }
 
 #angleMode {
     font-size: 12px;
-    color: #52634a;
+    color: #d17b9f;
 }
 
 .keypad {
@@ -118,47 +126,72 @@ body {
 }
 
 .key {
-    border: none;
-    border-radius: 9px;
+    border: 1px solid #f1c5d7;
+    border-radius: 10px;
     min-height: 48px;
     font-size: 15px;
     font-weight: bold;
-    background: #354153;
-    color: white;
+    background: #ffffff;
+    color: #a64d76;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-.key:hover { filter: brightness(1.2); }
+.key:hover {
+    filter: brightness(0.97);
+    transform: translateY(-2px);
+}
 
-.key.function { background: #46566f; }
-.key.operator { background: #1767a5; }
-.key.danger { background: #a83c49; }
+.key.function {
+    background: #fce4ec;
+    color: #b45e82;
+}
+
+.key.operator {
+    background: #f5bfd3;
+    color: #8f4165;
+}
+
+.key.danger {
+    background: #e99ab8;
+    color: #ffffff;
+    border-color: #e99ab8;
+}
+
 .key.equal {
-    background: #2563eb;
+    background: #d978a3;
+    color: #ffffff;
+    border-color: #d978a3;
     grid-column: span 2;
 }
 
-.key.number { background: #303b4d; }
+.key.number {
+    background: #ffffff;
+    color: #a64d76;
+}
 
 .section-title {
     font-size: 13px;
-    color: #b9c6d8;
+    color: #c16d91;
     margin: 15px 0 8px;
     font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 .history {
-    background: #172131;
-    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #f1c5d7;
+    border-radius: 12px;
     padding: 12px;
     margin-top: 18px;
     max-height: 180px;
     overflow-y: auto;
+    color: #a64d76;
 }
 
 .history-item {
     padding: 8px;
-    border-bottom: 1px solid #39475b;
+    border-bottom: 1px solid #f5dce7;
     font-size: 13px;
     overflow-wrap: anywhere;
 }
@@ -168,6 +201,13 @@ body {
 .history-item button {
     margin-top: 5px;
     font-size: 11px;
+    color: #b45e82;
+    border-color: #e8a8c2;
+}
+
+.history-item button:hover {
+    background: #fce4ec;
+    color: #944467;
 }
 
 @media(max-width: 400px) {
@@ -322,7 +362,8 @@ body {
     <div class="history">
         <div class="d-flex justify-content-between align-items-center">
             <strong>Riwayat Perhitungan</strong>
-            <button class="btn btn-sm btn-danger"
+            <button class="btn btn-sm"
+                    style="background:#e99ab8;color:white;border:none;"
                     onclick="clearHistory()">Hapus</button>
         </div>
         <div id="historyList" class="mt-2">
