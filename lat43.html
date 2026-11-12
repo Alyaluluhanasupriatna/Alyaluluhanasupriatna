@@ -5,24 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penjumlahan Dua Bilangan</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FADADD;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #FFF0F5;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+            max-width: 400px;
+            width: 85%;
+        }
+
+        h3 {
+            color: #D46A91;
+            font-size: 27px;
+        }
+
+        label {
+            display: block;
+            color: #A64D79;
+            font-size: 16px;
+            margin: 15px 0 10px;
+        }
+
+        input {
+            padding: 12px;
+            border: 2px solid #F4A6C1;
+            border-radius: 10px;
+            background-color: white;
+            color: #A64D79;
+            font-size: 16px;
+            width: 85%;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: #EFA4BD;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #D46A91;
+        }
+
+        #hasil {
+            margin-top: 25px;
+            color: #C05078;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h3>Penjumlahan Dua Bilangan</h3>
+    <div class="container">
 
-    <label>Bilangan pertama:</label>
-    <input type="number" id="bilangan1">
+        <h3>♡ Penjumlahan Dua Bilangan ♡</h3>
 
-    <br><br>
+        <label for="bilangan1">Bilangan pertama:</label>
+        <input type="number" id="bilangan1" placeholder="Masukkan bilangan pertama">
 
-    <label>Bilangan kedua:</label>
-    <input type="number" id="bilangan2">
+        <label for="bilangan2">Bilangan kedua:</label>
+        <input type="number" id="bilangan2" placeholder="Masukkan bilangan kedua">
 
-    <br><br>
+        <br>
 
-    <button onclick="jumlahkan()">Hitung Hasil</button>
+        <button onclick="jumlahkan()">Hitung Hasil</button>
 
-    <p id="hasil"></p>
+        <p id="hasil"></p>
+
+    </div>
 
     <script>
         function jumlahkan() {
@@ -31,15 +103,18 @@
             let hasil = document.getElementById("hasil");
 
             if (a === "" || b === "") {
-                hasil.textContent = "Masukkan kedua bilangan terlebih dahulu!";
+                hasil.textContent =
+                    "Masukkan kedua bilangan terlebih dahulu!";
                 return;
             }
 
             let total = Number(a) + Number(b);
 
-            hasil.textContent = "Hasil penjumlahan: " + total;
+            hasil.textContent =
+                "♡ Hasil penjumlahan: " + total + " ♡";
         }
     </script>
 
 </body>
 </html>
+
