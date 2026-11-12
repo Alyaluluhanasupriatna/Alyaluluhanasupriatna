@@ -1,36 +1,38 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biodata dan Scientific Calculator</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
-    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    background: linear-gradient(135deg, #fff5f8, #fce4ec, #f8bbd0);
     min-height: 100vh;
     font-family: Arial, sans-serif;
     padding-bottom: 40px;
+    color: #754354;
 }
 
-.navbar { background: #0f172a; }
+.navbar {
+    background: #e9a9bc;
+    box-shadow: 0 3px 12px #d98ba522;
+}
+
+.navbar-brand {
+    color: white !important;
+    letter-spacing: 1px;
+}
 
 .biodata-card {
     max-width: 450px;
     margin: 35px auto;
-    background: white;
-    color: #172554;
-    border-radius: 20px;
+    background: #ffffff;
+    color: #754354;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 10px 30px #0004;
+    box-shadow: 0 10px 30px #d98ba533;
+    border: 1px solid #f9dce5;
 }
 
 .profile-header {
-    background: #1d4ed8;
+    background: linear-gradient(135deg, #f3b6c9, #e89bb5);
     color: white;
     text-align: center;
     padding: 28px 15px;
@@ -41,13 +43,14 @@ body {
     height: 85px;
     border-radius: 50%;
     background: white;
-    color: #1d4ed8;
+    color: #df8da9;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 40px;
     font-weight: bold;
     margin: auto auto 15px;
+    box-shadow: 0 4px 12px #0001;
 }
 
 .profile-body {
@@ -55,38 +58,57 @@ body {
     text-align: center;
 }
 
+.profile-body h6 {
+    color: #c06e8a;
+}
+
 .profile-footer {
-    background: #f1f5f9;
+    background: #fff0f5;
     text-align: center;
     padding: 14px;
-    color: #64748b;
+    color: #b77a90;
 }
 
 .nav-links a {
     display: inline-block;
-    background: #1d4ed8;
-    color: white;
+    background: #f2b6c9;
+    color: #713c50;
     text-decoration: none;
     padding: 8px 12px;
     margin: 4px;
-    border-radius: 7px;
+    border-radius: 9px;
     font-size: 13px;
+    transition: 0.2s;
 }
+
+.nav-links a:hover {
+    background: #e99bb5;
+    color: white;
+}
+
+/* SCIENTIFIC CALCULATOR */
 
 .calculator {
     max-width: 520px;
     margin: 30px auto;
-    background: #202938;
-    color: white;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 12px 35px #0005;
+    background: #fffafd;
+    color: #854d62;
+    padding: 22px;
+    border-radius: 24px;
+    border: 1px solid #f8dce6;
+    box-shadow: 0 12px 35px #d58da522;
+}
+
+.calculator h4 {
+    color: #c16f8b;
+    letter-spacing: 1px;
 }
 
 .display {
-    background: #dce9d4;
-    color: #15251a;
-    border-radius: 10px;
+    background: #fff0f5;
+    color: #784557;
+    border: 1px solid #f4d1de;
+    border-radius: 14px;
     padding: 14px;
     margin-bottom: 15px;
     min-height: 105px;
@@ -97,18 +119,31 @@ body {
 #expression {
     font-size: 14px;
     min-height: 22px;
-    color: #52634a;
+    color: #b77b91;
 }
 
 #screen {
     font-size: 30px;
     font-weight: bold;
     min-height: 40px;
+    color: #784557;
 }
 
 #angleMode {
     font-size: 12px;
-    color: #52634a;
+    color: #c17b96;
+}
+
+.calculator .btn-outline-light {
+    border: 1px solid #e8afc1;
+    color: #a65d78;
+    background: white;
+    border-radius: 9px;
+}
+
+.calculator .btn-outline-light:hover {
+    background: #fce4ec;
+    color: #854d62;
 }
 
 .keypad {
@@ -119,482 +154,102 @@ body {
 
 .key {
     border: none;
-    border-radius: 9px;
+    border-radius: 11px;
     min-height: 48px;
     font-size: 15px;
     font-weight: bold;
-    background: #354153;
-    color: white;
+    background: #fce4ec;
+    color: #854d62;
     cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 5px #d98ba515;
 }
 
-.key:hover { filter: brightness(1.2); }
+.key:hover {
+    filter: brightness(0.96);
+    transform: translateY(-2px);
+}
 
-.key.function { background: #46566f; }
-.key.operator { background: #1767a5; }
-.key.danger { background: #a83c49; }
+.key:active {
+    transform: scale(0.96);
+}
+
+.key.function {
+    background: #f9d5e1;
+    color: #a45775;
+}
+
+.key.operator {
+    background: #eeb2c6;
+    color: #713b50;
+}
+
+.key.danger {
+    background: #e9a0b8;
+    color: white;
+}
+
 .key.equal {
-    background: #2563eb;
+    background: #d9799b;
+    color: white;
     grid-column: span 2;
 }
 
-.key.number { background: #303b4d; }
+.key.number {
+    background: #ffffff;
+    color: #854d62;
+    border: 1px solid #f2d9e2;
+}
 
 .section-title {
     font-size: 13px;
-    color: #b9c6d8;
+    color: #c17b96;
     margin: 15px 0 8px;
     font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 .history {
-    background: #172131;
-    border-radius: 10px;
+    background: #fff0f5;
+    border: 1px solid #f4d5e0;
+    border-radius: 13px;
     padding: 12px;
     margin-top: 18px;
     max-height: 180px;
     overflow-y: auto;
+    color: #854d62;
 }
 
 .history-item {
     padding: 8px;
-    border-bottom: 1px solid #39475b;
+    border-bottom: 1px solid #f2d6e0;
     font-size: 13px;
     overflow-wrap: anywhere;
 }
 
-.history-item:last-child { border-bottom: none; }
+.history-item:last-child {
+    border-bottom: none;
+}
 
 .history-item button {
     margin-top: 5px;
     font-size: 11px;
+    background: #e9a0b8;
+    border: none;
+    color: white;
 }
 
 @media(max-width: 400px) {
-    .calculator { padding: 12px; }
-    .keypad { gap: 5px; }
-    .key { min-height: 43px; font-size: 13px; }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-dark">
-    <div class="container">
-        <span class="navbar-brand fw-bold">
-            BIODATA MAHASISWA
-        </span>
-    </div>
-</nav>
-
-<div class="container">
-
-<!-- BIODATA -->
-<div class="biodata-card">
-    <div class="profile-header">
-        <div class="avatar">A</div>
-        <h3 class="fw-bold">Alya Luluhana Supriatna</h3>
-        <p class="mb-0">Mahasiswa</p>
-    </div>
-
-    <div class="profile-body">
-        <h6 class="fw-bold">NIM</h6>
-        <p>262302012</p>
-
-        <h6 class="fw-bold">Program Studi</h6>
-        <p>Komputerisasi Akuntansi</p>
-
-        <h6 class="fw-bold">Semester</h6>
-        <p>1</p>
-
-        <hr>
-        <h6 class="fw-bold">Navigasi Materi</h6>
-        <div class="nav-links">
-            <a href="lat41.html">Latihan 41</a>
-            <a href="lat42.html">Latihan 42</a>
-            <a href="lat43.html">Latihan 43</a>
-            <a href="lat44.html">Latihan 44</a>
-        </div>
-    </div>
-
-    <div class="profile-footer">
-        © 2026 - Biodata Mahasiswa
-    </div>
-</div>
-
-<!-- SCIENTIFIC CALCULATOR -->
-<div class="calculator">
-
-    <h4 class="text-center fw-bold mb-3">
-        SCIENTIFIC CALCULATOR
-    </h4>
-
-    <div class="display">
-        <div id="expression"></div>
-        <div id="screen">0</div>
-        <div id="angleMode">DEG</div>
-    </div>
-
-    <div class="d-flex gap-2 mb-3">
-        <button class="btn btn-outline-light flex-fill"
-                onclick="toggleAngle()">DEG / RAD</button>
-        <button class="btn btn-outline-light flex-fill"
-                onclick="copyResult()">SALIN HASIL</button>
-    </div>
-
-    <div class="section-title">FUNGSI ILMIAH</div>
-
-    <div class="keypad">
-
-        <button class="key function" onclick="scientific('sin')">sin</button>
-        <button class="key function" onclick="scientific('cos')">cos</button>
-        <button class="key function" onclick="scientific('tan')">tan</button>
-        <button class="key function" onclick="scientific('asin')">sin⁻¹</button>
-        <button class="key function" onclick="scientific('acos')">cos⁻¹</button>
-
-        <button class="key function" onclick="scientific('atan')">tan⁻¹</button>
-        <button class="key function" onclick="scientific('sqrt')">√</button>
-        <button class="key function" onclick="scientific('cbrt')">∛</button>
-        <button class="key function" onclick="scientific('square')">x²</button>
-        <button class="key function" onclick="scientific('cube')">x³</button>
-
-        <button class="key function" onclick="scientific('log')">log</button>
-        <button class="key function" onclick="scientific('ln')">ln</button>
-        <button class="key function" onclick="scientific('factorial')">x!</button>
-        <button class="key function" onclick="insert('Math.PI')">π</button>
-        <button class="key function" onclick="insert('Math.E')">e</button>
-
-    </div>
-
-    <div class="section-title">OPERATOR PERHITUNGAN</div>
-
-    <div class="keypad">
-
-        <button class="key danger" onclick="clearAll()">AC</button>
-        <button class="key danger" onclick="backspace()">DEL</button>
-        <button class="key function" onclick="insert('(')">(</button>
-        <button class="key function" onclick="insert(')')">)</button>
-        <button class="key operator" onclick="insert('/')">÷</button>
-
-        <button class="key number" onclick="insert('7')">7</button>
-        <button class="key number" onclick="insert('8')">8</button>
-        <button class="key number" onclick="insert('9')">9</button>
-        <button class="key operator" onclick="insert('%')">mod</button>
-        <button class="key operator" onclick="insert('*')">×</button>
-
-        <button class="key number" onclick="insert('4')">4</button>
-        <button class="key number" onclick="insert('5')">5</button>
-        <button class="key number" onclick="insert('6')">6</button>
-        <button class="key operator" onclick="insert('**')">xʸ</button>
-        <button class="key operator" onclick="insert('-')">−</button>
-
-        <button class="key number" onclick="insert('1')">1</button>
-        <button class="key number" onclick="insert('2')">2</button>
-        <button class="key number" onclick="insert('3')">3</button>
-        <button class="key operator" onclick="insert('/')">÷</button>
-        <button class="key operator" onclick="insert('+')">+</button>
-
-        <button class="key number" onclick="insert('0')">0</button>
-        <button class="key number" onclick="insert('.')">.</button>
-        <button class="key function" onclick="insert('Ans')">Ans</button>
-        <button class="key equal" onclick="calculate()">=</button>
-
-    </div>
-
-    <div class="section-title">OPERATOR PERBANDINGAN</div>
-
-    <div class="keypad">
-        <button class="key operator" onclick="insert('>')">&gt;</button>
-        <button class="key operator" onclick="insert('<')">&lt;</button>
-        <button class="key operator" onclick="insert('>=')">&gt;=</button>
-        <button class="key operator" onclick="insert('<=')">&lt;=</button>
-        <button class="key operator" onclick="insert('==')">==</button>
-
-        <button class="key operator" onclick="insert('===')">===</button>
-        <button class="key operator" onclick="insert('!=')">!=</button>
-        <button class="key operator" onclick="insert('!==')">!==</button>
-        <button class="key function" onclick="insert('!')">!</button>
-        <button class="key function" onclick="insert('Math.PI')">π</button>
-    </div>
-
-    <div class="history">
-        <div class="d-flex justify-content-between align-items-center">
-            <strong>Riwayat Perhitungan</strong>
-            <button class="btn btn-sm btn-danger"
-                    onclick="clearHistory()">Hapus</button>
-        </div>
-        <div id="historyList" class="mt-2">
-            <small>Belum ada riwayat.</small>
-        </div>
-    </div>
-
-</div>
-</div>
-
-<script>
-let expression = "";
-let answer = 0;
-let angle = "DEG";
-let history = [];
-
-const screen = document.getElementById("screen");
-const expressionDisplay = document.getElementById("expression");
-const angleDisplay = document.getElementById("angleMode");
-
-function updateDisplay() {
-    screen.textContent = expression || "0";
-    expressionDisplay.textContent = "";
-    angleDisplay.textContent = angle;
-}
-
-function insert(value) {
-    if (expression === "Error") expression = "";
-
-    if (value === "Math.PI") value = "π";
-    if (value === "Math.E") value = "e";
-
-    expression += value;
-    updateDisplay();
-}
-
-function clearAll() {
-    expression = "";
-    updateDisplay();
-}
-
-function backspace() {
-    expression = expression.slice(0, -1);
-    updateDisplay();
-}
-
-function toggleAngle() {
-    angle = angle === "DEG" ? "RAD" : "DEG";
-    updateDisplay();
-}
-
-function toRadians(x) {
-    return angle === "DEG" ? x * Math.PI / 180 : x;
-}
-
-function fromRadians(x) {
-    return angle === "DEG" ? x * 180 / Math.PI : x;
-}
-
-function factorial(n) {
-    if (!Number.isInteger(n) || n < 0 || n > 170) {
-        throw new Error("Faktorial hanya untuk bilangan bulat 0–170");
-    }
-    let result = 1;
-    for (let i = 2; i <= n; i++) result *= i;
-    return result;
-}
-
-// Mengubah ekspresi fungsi kalkulator menjadi JavaScript.
-function prepareExpression(source) {
-    let s = source;
-
-    // Konstanta dan jawaban terakhir
-    s = s.replace(/π/g, "Math.PI");
-    s = s.replace(/(^|[^A-Za-z])e(?![A-Za-z])/g, "$1Math.E");
-    s = s.replace(/\bAns\b/g, "(" + answer + ")");
-
-    // Fungsi trigonometri dan matematika
-    const functions = {
-        sin: x => Math.sin(toRadians(x)),
-        cos: x => Math.cos(toRadians(x)),
-        tan: x => Math.tan(toRadians(x)),
-        asin: x => fromRadians(Math.asin(x)),
-        acos: x => fromRadians(Math.acos(x)),
-        atan: x => fromRadians(Math.atan(x)),
-        sqrt: x => Math.sqrt(x),
-        cbrt: x => Math.cbrt(x),
-        log: x => Math.log10(x),
-        ln: x => Math.log(x),
-        factorial: x => factorial(x)
-    };
-
-    for (const [name, fn] of Object.entries(functions)) {
-        const regex = new RegExp("\\b" + name + "\\(", "g");
-        s = s.replace(regex, "functions." + name + "(");
+    .calculator {
+        padding: 12px;
     }
 
-    // Fungsi x² dan x³ melalui tombol scientific.
-    s = s.replace(/\^/g, "**");
-
-    // Faktorial postfix: 5! menjadi factorial(5)
-    s = s.replace(/(\d+(?:\.\d+)?|\([^()]*\))!/g,
-        "functions.factorial($1)");
-
-    return s;
-}
-
-// Evaluasi aman: hanya izinkan karakter dan fungsi kalkulator.
-function calculateExpression(source) {
-    let js = prepareExpression(source);
-
-    const allowed = /^[0-9+\-*/%().,!<>=\sA-Za-z_]*$/;
-
-    if (!allowed.test(js)) {
-        throw new Error("Ekspresi tidak valid");
+    .keypad {
+        gap: 5px;
     }
 
-    const functions = {
-        sin: x => Math.sin(toRadians(x)),
-        cos: x => Math.cos(toRadians(x)),
-        tan: x => Math.tan(toRadians(x)),
-        asin: x => fromRadians(Math.asin(x)),
-        acos: x => fromRadians(Math.acos(x)),
-        atan: x => fromRadians(Math.atan(x)),
-        sqrt: x => Math.sqrt(x),
-        cbrt: x => Math.cbrt(x),
-        log: x => Math.log10(x),
-        ln: x => Math.log(x),
-        factorial: x => factorial(x)
-    };
-
-    // Nama yang diizinkan setelah penggantian.
-    const names = ["Math", "PI", "E", "functions",
-                   "sin", "cos", "tan", "asin", "acos",
-                   "atan", "sqrt", "cbrt", "log", "ln",
-                   "factorial"];
-
-    const identifiers = js.match(/[A-Za-z_]+/g) || [];
-    for (const id of identifiers) {
-        if (!names.includes(id)) {
-            throw new Error("Fungsi tidak dikenal: " + id);
-        }
-    }
-
-    // Hanya ekspresi matematika yang telah divalidasi.
-    return Function("functions", '"use strict"; return (' + js + ')')(functions);
-}
-
-function calculate() {
-    if (!expression) return;
-
-    try {
-        const result = calculateExpression(expression);
-
-        if (typeof result === "number" && !Number.isFinite(result)) {
-            throw new Error("Hasil tidak terdefinisi");
-        }
-
-        const oldExpression = expression;
-        answer = result;
-        expression = String(result);
-
-        screen.textContent = expression;
-        expressionDisplay.textContent = oldExpression + " =";
-
-        addHistory(oldExpression, result);
-    } catch (error) {
-        screen.textContent = "Error";
-        expressionDisplay.textContent = error.message;
-        expression = "";
+    .key {
+        min-height: 43px;
+        font-size: 13px;
     }
 }
-
-function scientific(name) {
-    if (!expression) return;
-
-    const value = expression;
-
-    const functions = {
-        sin: "sin(",
-        cos: "cos(",
-        tan: "tan(",
-        asin: "asin(",
-        acos: "acos(",
-        atan: "atan(",
-        sqrt: "sqrt(",
-        cbrt: "cbrt(",
-        log: "log(",
-        ln: "ln("
-    };
-
-    if (name === "square") expression = "(" + value + ")**2";
-    else if (name === "cube") expression = "(" + value + ")**3";
-    else if (name === "factorial") expression = "(" + value + ")!";
-    else expression = functions[name] + value + ")";
-
-    updateDisplay();
-}
-
-function addHistory(rumus, result) {
-    history.unshift({
-        rumus: rumus,
-        result: String(result)
-    });
-
-    if (history.length > 20) history.pop();
-    renderHistory();
-}
-
-function renderHistory() {
-    const list = document.getElementById("historyList");
-    list.innerHTML = "";
-
-    if (!history.length) {
-        list.innerHTML = "<small>Belum ada riwayat.</small>";
-        return;
-    }
-
-    history.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "history-item";
-
-        const text = document.createElement("div");
-        text.textContent = item.rumus + " = " + item.result;
-
-        const button = document.createElement("button");
-        button.className = "btn btn-sm btn-outline-light";
-        button.textContent = "Gunakan hasil";
-        button.onclick = () => {
-            expression = item.result;
-            updateDisplay();
-        };
-
-        div.append(text, button);
-        list.appendChild(div);
-    });
-}
-
-function clearHistory() {
-    history = [];
-    renderHistory();
-}
-
-async function copyResult() {
-    const value = screen.textContent;
-    if (!value || value === "0" || value === "Error") {
-        alert("Belum ada hasil untuk disalin.");
-        return;
-    }
-
-    try {
-        await navigator.clipboard.writeText(value);
-        alert("Hasil berhasil disalin!");
-    } catch {
-        alert("Clipboard tidak tersedia di browser ini.");
-    }
-}
-
-// Keyboard fisik
-document.addEventListener("keydown", function(event) {
-    if (/^[0-9.]$/.test(event.key)) insert(event.key);
-    else if (["+", "-", "*", "/", "%", "(", ")"].includes(event.key)) {
-        insert(event.key);
-    }
-    else if (event.key === "Enter") calculate();
-    else if (event.key === "Backspace") backspace();
-    else if (event.key === "Escape") clearAll();
-});
-
-updateDisplay();
-renderHistory();
-</script>
-
-</body>
-</html>
