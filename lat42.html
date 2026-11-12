@@ -5,13 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penghitung Usia</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FADADD;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #FFF0F5;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+            max-width: 400px;
+            width: 85%;
+        }
+
+        h1 {
+            color: #D46A91;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            color: #A64D79;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 12px;
+            border: 2px solid #F4A6C1;
+            border-radius: 10px;
+            background-color: white;
+            color: #A64D79;
+            font-size: 16px;
+            width: 85%;
+        }
+
+        #hasilUsia {
+            margin-top: 25px;
+            color: #C05078;
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+    </style>
 </head>
+
 <body>
 
-    <label for="tanggalLahir">Tanggal lahir kamu:</label>
-    <input type="date" id="tanggalLahir" onchange="hitungUsia()">
+    <div class="container">
 
-    <p id="hasilUsia"></p>
+        <h1>♡ Penghitung Usia ♡</h1>
+
+        <label for="tanggalLahir">
+            Masukkan tanggal lahir kamu:
+        </label>
+
+        <input
+            type="date"
+            id="tanggalLahir"
+            onchange="hitungUsia()"
+        >
+
+        <p id="hasilUsia"></p>
+
+    </div>
 
     <script>
         function hitungUsia() {
@@ -27,7 +94,8 @@
             const sekarang = new Date();
 
             if (lahir > sekarang) {
-                hasil.textContent = "Tanggal lahir tidak boleh di masa depan.";
+                hasil.textContent =
+                    "Tanggal lahir tidak boleh di masa depan.";
                 return;
             }
 
@@ -37,6 +105,7 @@
 
             if (hari < 0) {
                 bulan--;
+
                 const hariBulanSebelumnya = new Date(
                     sekarang.getFullYear(),
                     sekarang.getMonth(),
@@ -52,7 +121,7 @@
             }
 
             hasil.textContent =
-                `Kamu sudah berusia ${tahun} tahun ${bulan} bulan ${hari} hari`;
+                `♡ Kamu sudah berusia ${tahun} tahun ${bulan} bulan ${hari} hari ♡`;
         }
     </script>
 
