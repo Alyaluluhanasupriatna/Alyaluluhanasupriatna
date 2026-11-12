@@ -4,13 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waktu Saat Ini</title>
+    <title>Jam Digital Live</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FADADD;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #FFF0F5;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+        }
+
+        h1 {
+            color: #D46A91;
+            font-size: 30px;
+        }
+
+        #jam {
+            font-size: 55px;
+            font-weight: bold;
+            color: #C05078;
+            margin: 20px 0;
+        }
+
+        #tanggal {
+            font-size: 20px;
+            color: #A64D79;
+        }
+    </style>
 </head>
+
 <body>
 
-    <button onclick="tampilkanWaktu()">
-        Tampilkan Waktu saat ini
-    </button>
+    <div class="container">
+        <h1>♡ Jam Digital Live ♡</h1>
+
+        <div id="jam">00:00:00</div>
+
+        <div id="tanggal"></div>
+    </div>
 
     <script>
         /*
@@ -18,16 +61,39 @@
         1. Mulai
         2. Buat fungsi tampilkanWaktu
         3. Ambil tanggal dan waktu saat ini
-        4. Tampilkan tanggal dan waktu menggunakan alert
-        5. Selesai
+        4. Tampilkan jam secara digital
+        5. Perbarui waktu setiap satu detik
+        6. Selesai
         */
 
-        // Implementasi JavaScript sebenarnya
         function tampilkanWaktu() {
             let sekarang = new Date();
-            alert(sekarang.toLocaleString("id-ID"));
+
+            let waktu = sekarang.toLocaleTimeString("id-ID", {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false
+            });
+
+            let tanggal = sekarang.toLocaleDateString("id-ID", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+
+            document.getElementById("jam").innerHTML = waktu;
+            document.getElementById("tanggal").innerHTML = tanggal;
         }
+
+        // Menjalankan jam setiap 1 detik
+        tampilkanWaktu();
+        setInterval(tampilkanWaktu, 1000);
+
     </script>
 
 </body>
+</html>
+
 </html>
